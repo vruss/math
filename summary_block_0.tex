@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{Summary of Block 0 Theory}
+\title{MA080G Cryptography Summary of Block 0 Theory}
 \author{Viktor Rosvall}
 \date{Mars 2019}
 
@@ -9,7 +9,7 @@
 	\maketitle
 	\subsection*{The main types of encryption}
 
-	In \textbf{Transportation ciphers} encryption is done by changing the ordering of letters in plaintext systematically. A \textbf{Substitution cipher} is done by scrambling the letters of a plain-text. An example of this is the \textit{Caesar cipher}, which encrypts plaintext by shifting the letters of the alphabet 3 times to the right (the key), and decrypts by shifting 3 times to the left. This is called a \textit{Shift cipher} and isn't very secure due to the low key-space. There are 2 kinds of Substitution ciphers: \textit{mono-alphabetic} (letters are always encrypted the same) and \textit{poly-alphabetic} (a latter may be encrypted differently depending on it’s position in the plaintext). There are 3 kinds of attacks on ciphers: \textit{ciphertext-only}, \textit{known-plaintext} and \textit{chosen-plaintext}. A cipher must be able to withstand a chosen-plaintext attack. 
+	In \textbf{Transportation ciphers} encryption is done by changing the ordering of letters in plaintext systematically. A \textbf{Substitution cipher} is done by scrambling the letters of a plaintext. An example of this is the \textit{Caesar cipher}, which encrypts plaintext by shifting the letters of the alphabet 3 times to the right (the key), and decrypts by shifting 3 times to the left. This is called a \textit{Shift cipher} and isn't very secure due to the low key-space. There are 2 kinds of Substitution ciphers: \textit{mono-alphabetic} (letters are always encrypted the same) and \textit{poly-alphabetic} (a latter may be encrypted differently depending on it’s position in the plaintext). There are 3 kinds of attacks on ciphers: \textit{ciphertext-only}, \textit{known-plaintext} and \textit{chosen-plaintext}. A cipher must be able to withstand a chosen-plaintext attack. 
 	
 	\subsection*{Permutations}
 	Let $ N_{n} = \{1,2,3,...,n\} $ be an alphabet with $n$ letter.
@@ -43,5 +43,7 @@
 	$S_n$ is the set of all permutations of $N_n$. $S_n$ is called the \textit{symmetric group of degree $n$}. The number of permutations can be counted as $n!$ which is the order of $S_n \ \ \ \forall n \in Z_+$.
 	
 	A \textbf{k-cycle} in $S_n$ is a permutation which moves $k$ elements of $N_n$ in a cycle and does nothing to the remaining elements os $N_n$.
+	
+	$S_n$ has... page 16 part 1. 
 
 \end{document}
