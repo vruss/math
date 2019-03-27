@@ -1,0 +1,28 @@
+\documentclass{article}
+\title{Summary of Theory for Block 0}
+\author{Viktor Rosvall}
+\date{Mars 2019}
+
+\usepackage{amsmath}
+
+\begin{document}
+	\maketitle
+	\subsection*{The main types of encryption}
+
+	In \textbf{Transportation ciphers} encryption is done by changing the ordering of letters in plaintext systematically. A \textbf{Substitution cipher} is done by scrambling the letters of a plain-text. An example of this is the \textit{Caesar cipher}, which encrypts plaintext by shifting the letters of the alphabet 3 times to the right (the key), and decrypts by shifting 3 times to the left. This is called a \textit{Shift cipher} and isn't very secure due to the low key-space. There are 2 kinds of Substitution ciphers: \textit{mono-alphabetic} (letters are always encrypted the same) and \textit{poly-alphabetic} (a latter may be encrypted differently depending on it’s position in the plaintext). There are 3 kinds of attacks on ciphers: \textit{ciphertext-only}, \textit{known-plaintext} and chosen-plaintext. A cipher must be able to withstand a chosen-plaintext attack. 
+	
+	\subsection*{Permutations}
+	Let $ N_{n} = \{1,2,3,...,n\} $ be an alphabet with $n$ letter.
+	A permutation of plaintext can be seen as a bijective function: $ \alpha : N_{n} \to N_{n} $ 
+	
+	\subsubsection*{Notation}
+	Permutations can be written in both \textbf{matrix notation} and \textbf{disjoint cycle notation}:
+	
+	$$
+	N_{n} = 
+	\begin{pmatrix}
+	1 & 2 & 3 & 4 & 5 \\
+	2 & 2 & 5 & 3 & 4
+	\end{pmatrix}
+	$$
+\end{document}
