@@ -1,7 +1,6 @@
 \documentclass{article}
 \title{MA080G Cryptography Assignment 1}
 \author{Viktor Rosvall}
-\date{Mars 2019}
 
 \usepackage{amsmath}
 
@@ -83,9 +82,9 @@
 	\]
 	
 	\subsubsection*{10.6.4}
-	The number of permutations of type $[2^2]$ on $S_4$ can be calculated as: 
+	The number of permutations of type $[2^2]$ in $S_4$ can be calculated as: 
 	$$
-	\frac{4!}{2^{2}2!} = 3
+	S_4 \text{ has }\frac{4!}{2^{2}2!} = 3 \text{ permutations }
 	$$
 	Where the base is the loop size, and $\alpha$ is the number of loops
 	
@@ -148,7 +147,7 @@
 	\subsubsection*{b)}
 	To solve $[x] \in Z_{2018}$ we need to find the multiplicative inverse of $[17]$. We know that a multiplicative inverse exists because the $gcd(17,2018)=1$. 
 	
-	From Euclid's algorithm we get that $s = 831$ and $t=7$. The class $[831]$ is therefor the multiplicative inverse of $[17]$ 
+	From Euclid's algorithm we get that $s = 831$ and $t=7$. The class $[831]$ is thus the multiplicative inverse of $[17]$ 
 	$$
 	[17] \odot [831] = [14127] = [1]
 	$$
@@ -168,8 +167,30 @@
 	x \in \{...,-1187,831,2849,...\} \ \ \text{ or } \ \ x \in \{831+2018t \mid t \in Z\}
 	$$
 	
-	The most frequent trigram is RTA and then XUO. I make the assumption that they are the most frequent trigrams: the and ing. CUB and XUO has the letter n in common. I thus assume that CUB is the common trigram and.
+	\subsection*{Question 5}
+	Using tools to help you do the frequency analysis of cipher text. Decipher the following text and submit the first line of the plaintext together with a description of how you broke the cipher.
 	
-	By looking at the d\textit{igraph frequency} tablet, we can see that R, Q and D are frequent digrams with themselves. 
+	\subsection*{Answer 5} 
+	The most frequent trigram is RTA, XUO and CUB. I make the assumption that they are the most frequent trigrams: "the", "and", "ing". I focused on trigrams such as CUB and XUO which has letters in common.
+	
+	By looking at the \textit{digraph frequency} tablet, we can see that R, D, Q and K are frequent digrams (such as "ss" and "oo")  with themselves. I thus assume that they are probably the letters "t", "o", "s", "l".
+	
+	Through much trial and error, by focusing on trigrams mostly, I was able to find all the letter mappings which looks like this:
+	\[
+	\begin{matrix}
+	A&B&C&D&E&F&G&H&I&J \\ 
+	\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow \\
+	e&g&i&o&c&k&u&x&y&w \\ \\
+	K&L&M&N&O&P&Q&R&S&T \\ 
+	\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow \\
+	l&m&f&q&d&p&s&t&b&h \\ \\
+	U&V&W&X&Y&Z \\
+	\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow \\
+	n&V&r&a&Y&v 
+	\end{matrix}
+	\]
+	The ciphertext letters H and N was hard to crack because they only occurred once in the text. It was by process of elimination that I was able to determine them.
+	
+	The ciphertext letters V and Y has no occurrences which means that the plaintext letters "j" and "z" never occurs too.
 	
 \end{document}
