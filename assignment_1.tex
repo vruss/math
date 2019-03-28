@@ -87,6 +87,7 @@
 	$$
 	\frac{4!}{2^{2}2!} = 3
 	$$
+	Where the base is the loop size, and $\alpha$ is the number of loops
 	
 	\subsubsection*{10.6.5}
 	
@@ -100,5 +101,75 @@
 	$$
 	\frac{15!}{7!3!3!} = 7207200
 	$$
+	
+	\subsection*{Question 4}
+	\subsubsection*{a) (i)}
+	Use Euclid's algorithm to show that $gcd(17,2018)=1$
+	\subsubsection*{a) (ii)}
+	Find two integers $s$ and $t$ such that:
+	$$
+	17s+2018t=1
+	$$
+	
+	\subsubsection*{b)}
+	Showing all your working, find all solutions $[x] \in Z_{2018}$ to the equation
+	$$
+	[17] \odot [x] = [1]
+	$$
+	
+	\subsubsection*{c)}
+	Showing all your working, find the set of all integers $x$ which satisfy the congruence
+	$$
+	17x \equiv 1 (mod \ 2018)
+	$$
+	
+	\subsection*{Answer 4}
+	\subsubsection*{a) (i)}
+	By using Euclid's algorithm step by step we get;
+	\begin{align*}
+	2018 = 17(118) + 12 & \rightarrow & 12 = 2018-17(118) \\
+	17=12(1)+5 & \rightarrow & 5=17-12(1) \\
+	12=5(2)+2 & \rightarrow & 2=12-5(2) \\
+	5=2(2)+\textbf{1} & \rightarrow & 1=5-2(2) \\
+	2=1(2) + 0
+	\end{align*}
+	So $gcd(17,2018)=1$.
 
+	\subsubsection*{a) (ii)}
+	Working backwards through the algorithm step by step we get:
+	\begin{align*}
+	gcd(17,2018) =5	& = 5-2(2) 		&= 5-[12-5(2)](2) \\
+		 			& = 5(5)-12(2) 	&=[17-12(1)](5)-12(2) \\
+			 		& = 17(5)-12(7)	&= 17(5)-[2018-17(118)](7) \\ 
+			 		& = 17(831)-2018(7) &
+	\end{align*}
+	So $s = 831$ and $t=7$.
+	
+	\subsubsection*{b)}
+	To solve $[x] \in Z_{2018}$ we need to find the multiplicative inverse of $[17]$. We know that a multiplicative inverse exists because the $gcd(17,2018)=1$. 
+	
+	From Euclid's algorithm we get that $s = 831$ and $t=7$. The class $[831]$ is therefor the multiplicative inverse of $[17]$ 
+	$$
+	[17] \odot [831] = [14127] = [1]
+	$$
+	
+	\subsubsection*{c)}
+	To find the set of all integers $x$ in the congruence:
+	$$
+	17x \equiv 1 (mod \ 2018)
+	$$
+	is the same as finding all $[x] \in Z_{2018}$ satisfying the equation:
+	$$
+	[17] \odot [x] = [1]
+	$$
+	
+	we can calculated the inverse of $[17]$ to be $[831]$, thus the set of all integers is:
+	$$
+	x \in \{...,-1187,831,2849,...\} \ \ \text{ or } \ \ x \in \{831+2018t \mid t \in Z\}
+	$$
+	
+	The most frequent trigram is RTA and then XUO. I make the assumption that they are the most frequent trigrams: the and ing. CUB and XUO has the letter n in common. I thus assume that CUB is the common trigram and.
+	
+	By looking at the d\textit{igraph frequency} tablet, we can see that R, Q and D are frequent digrams with themselves. 
+	
 \end{document}
