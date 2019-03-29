@@ -86,9 +86,33 @@
 	$$
 	S_4 \text{ has }\frac{4!}{2^{2}2!} = 3 \text{ permutations }
 	$$
-	Where the base is the loop size, and $\alpha$ is the number of loops
+	Where the base is the loop size, and $\alpha$ is the number of loops.
+	
+	The loops available are:
+	\[
+	\begin{split}
+	\alpha_1 & = (1 \ 2) \ (3 \ 4) \\
+	\alpha_2 & = (1 \ 3) \ (2 \ 4) \\
+	\alpha_3 & = (1 \ 4) \ (2 \ 3) \\
+	i & = (1) \ (3) \ (2) \ (4) 
+	\end{split}
+	\]
 	
 	\subsubsection*{10.6.5}
+	$K$ is a subset of $S_n$ which contains the permutations $\alpha_1,\alpha_2,\alpha_3, i$ from above. 
+	\begin{center}
+		\begin{tabular}{ | l | c | r | }
+			\hline
+			$\odot$ & $i$ & $\alpha_1$ & $\alpha_2$ & $\alpha_3$ \\ \hline
+			$i$ & $i$ & $\alpha_1$ & $\alpha_1$\\ \hline
+			$\alpha_1$ \\
+			$\alpha_2$ & 8 & 9 \\
+			$\alpha_3$
+			\hline
+		\end{tabular}
+	\end{center}
+
+	By looking at the multiplication table of K
 	
 	\subsection*{Question 3}
 	In how many ways can you rearrange the letters of the string

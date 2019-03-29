@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.28)  28 MAR 2019 23:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.27)  29 MAR 2019 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -104,14 +104,14 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 [1
 
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (28.77838pt too wide) in paragraph at lines 94--96
+{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (28.77838pt too wide) in paragraph at lines 116--118
 \OT1/cmr/m/n/10 In how many ways can you re-ar-range the let-ters of the string
  ABRAABRAKADABRA? 
  []
 
-[2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
  []
 
@@ -119,7 +119,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--195
 Here is how much of TeX's memory you used:
  868 strings out of 494587
  9820 string characters out of 6177759
- 70496 words of memory out of 5000000
+ 71496 words of memory out of 5000000
  4554 multiletter control sequences out of 15000+600000
  9383 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -127,17 +127,18 @@ Here is how much of TeX's memory you used:
 </usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on assignment_1.pdf (5 pages, 130332 bytes).
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti10.pfb>
+Output written on assignment_1.pdf (5 pages, 137792 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
