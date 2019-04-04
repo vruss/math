@@ -1,0 +1,39 @@
+\documentclass{article}
+\title{MA080G Cryptography Assignment Block 1}
+\author{Viktor Rosvall}
+
+\usepackage{amsmath}
+
+\begin{document}
+	\maketitle
+	
+	\subsection*{Question 6}
+	\subsubsection*{(c)}
+	Decrypt the first line of the ciphertext below, given that it has been encrypted by
+	using a Vigen`ere cipher with the keyword \textbf{fishy}.
+	$$
+	\text{KQJZR YPWMG XPEBQ YJWJY ZOZAR MILPQ JIKFY GITFG YPAUI HWMSB MINLA FCYOR}
+	$$
+	
+	\subsubsection*{Answer (c)}
+	Using the formula we can get the ciphertext $y_i$:
+	$$
+	y_i = (x_i + k_{i MOD n}) MOD 26
+	$$
+	In this case, we are looking for the plaintext letters $x_i$.
+	\\\\
+	The key: \textbf{fishy}, corresponds to the sequence (5,8,18,7,24) as $y_i$. 
+	\\\\
+	If we want to decrypt the cipher text "KQJZR", which in numeric corresponds to "10,16,9,25,17", we start by using $y_0 = 10$ to decrypt K:
+	\[
+	\begin{split}
+	10 	&= (x_0 + 5_{0 MOD 5}) MOD 26 \\
+	10	&= (x_0 + 5_0) MOD 26 \\
+	5	&= x_0 MOD 26 \\
+	x_0 &= 5
+	\end{split}
+	\]
+	So the first letter "K" $\rightarrow$ "f". Using this formula for the remaining 4 ciphertext letters, we get "KQJZR" $\rightarrow$ "first".
+	
+	
+\end{document}
