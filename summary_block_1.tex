@@ -46,7 +46,7 @@
 	
 	The trick to remembering the sequence, is to shift the letter "a" to these numbers, for example: "aaaaa"  "FOXES"	
 	
-	\subsubsection*{Breaking the Vienère cipher}
+	\subsubsection*{Breaking the Vigenère cipher}
 	If we know the sequence length, we can split the ciphertext into multiple strings of the sequence length, and individually crack them.  
 	\\\\
 	Suppose we have the plaintext encoded by numbers: $x_0,x_1,x_2,...$. And the key $k_0,k_1,k_2,...,k_{n-1}$ of length $n$  
@@ -70,9 +70,90 @@
 	\]
 	So the first letter "K" $\rightarrow$ "f". Continuing this process, "KQJZR" $\rightarrow$ "first".
 	
-	\subsubsection*{Kasiski method for guessing the key length in a Vienère cipher}
+	\subsection*{Kasiski method for guessing the key length in a Vigenère cipher}
 	Using the \textit{Kasiski method} we can guess the key length $n$, by finding the greatest common divisor of the most common digrams and trigrams.
 	
 	After we have guessed the key length $n$, we can divide the cipher text into $n$ substrings. We can find the key letter by doing a frequency analysis on each column (representing each key letter). 
+	
+	\subsection*{Friedman's method for computing the key length in a Vigenère Cipher}
+	We need to compute the \textit{Index of Coincidence} (IOC) $I$, before we can calculate the key length. 
+	
+	\subsubsection*{Computing the IOC for a ciphertext}
+	Let $n_0,n_1,n_2,...,n_25$ be the number of As,Bs,Cs,...,Zs in the ciphertext. And $n$ be the total length of the ciphertext.
 		
+	We can calculate the IOC $I$ by obtaining the number of identical letters.
+	
+	$$
+	I = \frac{\sum_{0}^{25}n_i(n_i-1)}{n(n-1)}
+	$$
+	
+	\subsubsection*{Using the IOC to estimate the key length of a Vigenère cipher}
+	With a ciphertext of length $n$, the key length $k$, can be approximated using this formula:
+	$$
+	k \approx \frac{0.0265n}{(0.065-I) + n(I-0.0385)} 
+	$$
+	Where $I$ is the IOC calculated above.
+	\\\\
+	$0.065$ is the probability of choosing 2 identical letters in a English plaintext. $0.0385$ is the probability of choosing 2 identical letters randomly selected. And $0.0265 = 0.65 - 0.0385$
+	
+	\subsection*{The Chinese Remainder}
+	\textbf{Theorem}. Given pairwise coprime positive integers $n_1,n_2,...,n_k$ and arbitrary integers $a_1,a_2,...,a_k$, the system of simultaneous congruences
+	\[
+	\begin{split}
+	x &\equiv a_1 (mod \ n_1) \\
+	x &\equiv a_1 (mod \ n_1) \\
+	\ . &\\
+	\ . &\\
+	\ . &\\
+	\ x &\equiv a_1 (mod \ n_1)
+	\end{split}
+	\]
+	has a unique solution modulo $N = n_1,n_2,...,n_k$.
+	\\\\
+	Example:
+	\[
+	\begin{split}
+	x &\equiv 6 (mod \ 7) \\
+	x &\equiv 4 (mod \ 8) 
+	\end{split}
+	\]
+	We begin by calculating $N$, and new $n_1,n_2$
+	\[
+	\begin{split}
+	N & = 7*8 = 56 \\
+	n_1 &=N/7 = 8 \\
+	n_1 &=N/8 = 7 
+	\end{split}
+	\]
+	So $x$ becomes:
+	$$
+	x=6*8+4*7 = 76 
+	$$
+	$$
+	x=[76]_{56}=[20]_{56}
+	$$
+	$$
+	x \equiv 20 (mod \ 56)
+	$$
+	
+	\subsection*{Summary of Complexity Theory}
+	Complexity Theory is the study of \textit{time complexity}, how long it will take to compute functions, and the cost of computation.
+	
+	We use the \textbf{Big-O notation}, O(n), to measure the time complexity of functions and algorithms. 
+	\\\\
+	Example: Let $f : R \rightarrow R$ be given by $f(x) = 10x +30$.
+	Then $f$ is $O(x)$, on $x\geq 1$:
+	$$
+	|f(x)| = |10x +30| \leq |10x +30x| = |40x| = 40|x|
+	$$
+	because the constant 40 is insignificantly small on large x.
+	
+	\subsubsection*{Complexity classes}
+	\textit{Complexity class P}, is polynomial-time solvable. Which means a Turing machine could solve it.
+	\\\\
+	\textit{Complexity class ExpTime}, is exponential-time solvable, again with a Turing machine.
+	\\\\
+	\textit{Complexity class NP}, is non-deterministic polynomial-time solvable.
+	
+	
 \end{document}
