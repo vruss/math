@@ -7,6 +7,23 @@
 \begin{document}
 	\maketitle
 	
+	\subsection*{Question 4}
+	\subsubsection*{(a)}
+	Define Euler’s $\Phi$-function.
+	
+	\subsubsection*{Answer (a)}
+	Euler's $\Phi$ function on the natural numbers $n \geq 2$ given by:
+	$$
+	\Phi(n) =  \text{\# congruence classes } [a] \in Z_n \text{ such that }gcd(a,n = 1)
+	$$
+	Counts the number of invertible elements of $Z_n$. 
+	
+	\subsubsection*{(b)}
+	Compute $\Phi(17)$, $\Phi(289)$ and $\Phi(221)$.
+	
+	\subsubsection*{Answer (b)}
+	
+	
 	\subsection*{Question 6}
 	\subsubsection*{(a)}
 	Explain what Friedman’s Index of Coincidence measures and compute it for the
@@ -14,7 +31,17 @@
 	it was not monoalphabetic.
 	
 	\subsubsection*{Answer (a)}
-	
+	The \textit{Index of Coincidence} (IOC) $I$, measures the likelihood of picking 2 identical letters, from a text. 
+	\\\\
+	We can calculate the IOC $I$, by using the counted letters, given in the assignment. Where the  letters: a,b,c...,z are represented as $n_0,n_1,...,n_{25}$, and $n$ is the total number of letters. 
+	\[
+	\begin{split}
+	I &= \frac{\sum_{0}^{25}n_i(n_i-1)}{n(n-1)} \\
+	&=\frac{26(26-1)+20(20-1)+...+25(25-1)}{444*443} \\
+	&=\frac{8638}{196692} \\
+	&\approx0.44
+	\end{split}
+	\]
 	
 	\subsubsection*{(c)}
 	Decrypt the first line of the ciphertext below, given that it has been encrypted by
