@@ -7,6 +7,49 @@
 \begin{document}
 	\maketitle
 	
+	\subsection*{Question 1}
+	\subsubsection*{(a)}
+	Explain how a substitution cipher works.
+	
+	\subsubsection*{Answer (a)}
+	A \textbf{Substitution cipher} is done by permuting (scrambling) the letters of the alphabet. For example: replacing the letter "a" $\rightarrow$ "K". The key to a substitution cipher is a table of each permutation.
+	
+	\subsubsection*{(b)}
+	What does it mean for a substitution cipher to be
+	\\
+	(i) monoalphabetic?\\
+	(ii) polyalphabetic?
+	
+	\subsubsection*{Answer (b)}
+	(i)\\
+	In a monoalphabetic substitution cipher, the letters are always encrypted the same. 
+	
+	For example: "a" will always be permuted the same, no matter the position in the plaintext. 
+	\\\\
+	(ii)\\
+	In a polyalphabetic substitution cipher, the latter may be encrypted differently depending on it’s position in the plaintext. 
+	
+	For example: In a Vigenère cipher with a key length of 3, the letter "a" will be permuted differently depending on if it's in position 0,1 or 2 in the plaintext cycle. Like "a$_0$" $\rightarrow$ "K", "a$_1$" $\rightarrow$ "D" and "a$_2$" $\rightarrow$ "Q" 
+		
+	\subsubsection*{(c)}
+	Give a non-trivial example of a monoalphabetic substitution cipher and use it to
+	encrypt the plaintext
+	\[
+	\begin{split}
+	\text{Teach thy necessity to reason thus} \\
+		\text{There is no virtue like necessity}
+	\end{split}
+	\]
+	
+	\subsubsection*{Answer (c)}
+	
+	
+	\subsubsection*{(d)}
+	 Explain how to break a monoalphabetic substitution cipher.
+	
+	\subsubsection*{Answer (d)}
+	
+	
 	\subsection*{Question 4}
 	\subsubsection*{(a)}
 	Define Euler’s $\Phi$-function.
@@ -22,7 +65,35 @@
 	Compute $\Phi(17)$, $\Phi(289)$ and $\Phi(221)$.
 	
 	\subsubsection*{Answer (b)}
+	To compute $\Phi(n)$, we first need to prime factorize $n$, and then use the following formula:
+
+	$$
+	\Phi(n) = p_{1}^{a_1-1}(p_1-1)p_{2}^{a_2-1}(p_2-1)...p_{r}^{a_r-1}(p_r-1)
+	$$
+	Where $n = p_{1}^{a_1}p_{2}^{a_2}...p_{r}^{a_r}$ and $p_1,p_2,...,p_r$ are distinct primes and $a_1,a_2,...,a_r > 0$. 
+	\\\\
+	17 is already prime so we can calculate $\Phi(17)$ as:
+	$$
+	\Phi(17) = 17^{1-1}(17-1) = 16
+	$$
+
+	289 need to be factorized before we can calculate $\Phi$.
+	$$
+	289 = 17^2
+	$$
+	$$
+	\Phi(289) = 17^{2-1}(17-1) 
+	= 17*16 
+	= 272
+	$$
 	
+	And the same thing for 221:
+	$$
+	221 = 13 + 17
+	$$
+	$$
+	\Phi(221) = 13^{1-1}(13-1) + 17^{1-1}(17-1) = 12*16 = 192
+	$$
 	
 	\subsection*{Question 6}
 	\subsubsection*{(a)}
