@@ -3,6 +3,7 @@
 \author{Viktor Rosvall}
 
 \usepackage{amsmath}
+\usepackage{mathtools}
 
 \begin{document}
 	\maketitle
@@ -42,13 +43,41 @@
 	\]
 	
 	\subsubsection*{Answer (c)}
+	We first need to define a key, which looks like a table of sorts.
 	
-	
+	Using this key:
+	\[
+	\begin{matrix}
+	a&b&c&d&e&f&g&h&i&j \\ 
+	\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow \\
+	Q&W&E&R&T&Y&U&I&O&P \\ \\
+	k&l&m&n&o&p&q&r&s&t \\ 
+	\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow \\
+	A&S&D&F&G&H&J&K&L&Z \\ \\
+	u&v&w&x&y&z \\
+	\downarrow&\downarrow&\downarrow&\downarrow&\downarrow&\downarrow \\
+	X&C&V&B&N&M 
+	\end{matrix}
+	\]
+	our plaintext
+	\[
+	\begin{split}
+	\text{Teach thy necessity to reason thus} \\
+	\text{There is no virtue like necessity}
+	\end{split}
+	\] 
+	is encoded as:
+	\[
+	\begin{split}
+	\text{ZTQEI ZIN FTETLLOZN ZG KTQLGF ZIXL} \\
+	\text{ZITKT OL FG COKZXT SOAT FTETLLOZN}
+	\end{split}
+	\]
 	\subsubsection*{(d)}
 	 Explain how to break a monoalphabetic substitution cipher.
 	
 	\subsubsection*{Answer (d)}
-	
+	By looking at the \textit{letter frequencies} in the ciphertext, we can make guesses on what common letters they map to. By replacing the letters of digrams and trigrams in the ciphertext, to letters that's common in the English alphabet, we may start to see English words begin to form.
 	
 	\subsection*{Question 4}
 	\subsubsection*{(a)}
@@ -95,6 +124,12 @@
 	\Phi(221) = 13^{1-1}(13-1) + 17^{1-1}(17-1) = 12*16 = 192
 	$$
 	
+	\subsection*{Question 5}
+	
+	
+	\subsubsection*{Answer 5}
+	
+	
 	\subsection*{Question 6}
 	\subsubsection*{(a)}
 	Explain what Friedman’s Index of Coincidence measures and compute it for the
@@ -114,9 +149,80 @@
 	\end{split}
 	\]
 	
+	\subsubsection*{(b)}
+	Actually the ciphertext has been encrypted by using a Vigenère cipher with
+	keylength 5. Explain how the $\chi^2$-test for goodness of fit can be used to guess that
+	the first letter of the keyword is \textbf{f}. Include in your explanation full calculations to
+	show that a guess of \textbf{f} for first letter of the key is a better guess than the letter \textbf{z}.
+	
+	\subsubsection*{Answer (b)}
+	The $\chi^2$-test can be used to determine the best shift. This is determined calculating $\chi^2(\text{shift } n)$ for each shift, where the lowest value (deviation) is the best shift amount.  
+	\\\\
+	We begin by extracting the first letter of each column in the cipher text. This gives us the cipher text: 
+	KYXYZMJGYHMFNYNXTYXFDSQJMTPJYXFQYTFSJNIMJJJWNYLWRNFXHXMQJNAFYMMFZJYXPJXNMMJJMINJXTXJKWHYI
+	\\\\
+	We want to calculate $\chi$ when "K" is shifted to an "f". We get "f" by shifting "K" $\rightarrow$ "f", which gives us "a" $\rightarrow$ "f" (shift 5). 
+	\\\\
+	And when we want to calculate $\chi$ when "K" is shifted to an "z". We get "z" by shifting "K" $\rightarrow$ "z", which gives us "a" $\rightarrow$ "l" (shift 11). 
+	\\\\
+	$\chi^2$ is calculated with the following formula
+	$$
+	\chi^2=\sum\frac{(a_i-e_i)^2}{e_i}
+	$$
+	where $a_i$ is the number of letters: a,b,c,...,z. And $e_i$ is the expected frequency of the letter in the English alphabet (Pia's Block 1 notes, P.56).
+
+	\[
+	 \begin{matrix*}[l]
+	 \text{Letter} & \text{Expected freq. } e_i & \text{Observed frequency } a_i & \text{Shift 5} & \text{Shift 11} \\
+	A&5.30&1&1&7 \\
+	B&0.89&0&10&1\\
+	C&1.44&0&8&3\\
+	D&2.98&1&0&3\\
+	E&8.20&0&2&14\\
+	F&1.21&7&3&2\\
+	G&1.53&1&1&1\\
+	H&4.45&3&2&10\\
+	I&4.53&3&4&8\\
+	J&0.09&14&0&0\\
+	K&0.70&2&0&2\\
+	L&2.84&1&3&3\\
+	M&1.27&10&10&1\\
+	N&4.24&8&11&2\\
+	O&4.90&0&2&4\\
+	P&0.91&2&1&0\\
+	Q&0.12&3&0&0\\
+	R&3.26&1&0&3\\
+	S&3.93&2&1&10\\
+	T&6.45&4&0&11\\
+	U&2.09&0&7&2\\
+	V&0.51&0&1&1\\
+	W&1.62&3&3&0\\
+	X&0.08&10&3&0\\
+	Y&1.37&11&14&1\\
+	Z&0.05&2&2&0
+	\end{matrix*}
+	\]
+	
+	\[
+	\begin{split}
+	\chi^2(\text{shift } 5) &=\sum\frac{(a_i-e_i)^2}{e_i}  \\
+	&= \frac{(7-5.3)^2}{5.3} + \frac{(7-5.3)^2}{5.3} + ... + \frac{(0-0.05)^2}{0.05} \\
+	&\approx 31.51
+	\end{split}
+	\]
+	\[
+	\begin{split}
+	\chi^2(\text{shift } 11) &=\sum\frac{(a_i-e_i)^2}{e_i}  \\
+	&= \frac{(1-5.3)^2}{5.3} + \frac{(10-5.3)^2}{5.3} + ... + \frac{(2-0.05)^2}{0.05} \\
+	&\approx 536.11
+	\end{split}
+	\]
+	
+	This means that $\chi^2(\text{shift } 5)$ is the preferred shift amount for column 1, as it's lower than the value of $\chi^2(\text{shift } 11)$.
+	
 	\subsubsection*{(c)}
 	Decrypt the first line of the ciphertext below, given that it has been encrypted by
-	using a Vigen`ere cipher with the keyword \textbf{fishy}.
+	using a Vigenère cipher with the keyword \textbf{fishy}.
 	$$
 	\text{KQJZR YPWMG XPEBQ YJWJY ZOZAR MILPQ JIKFY GITFG YPAUI HWMSB MINLA FCYOR}
 	$$
