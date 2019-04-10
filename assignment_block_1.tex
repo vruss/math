@@ -125,19 +125,84 @@
 	$$
 	
 	\subsection*{Question 5}
-	
-	
+	The following has been enciphered with a Vigenère cipher using a keyword of length less than 12. Find the length of the keyword, hence the keyword and finally decrypt at least the first line of the text.
+	$$
+	\text{HRMWNUURSEAE UCSMNKTYQWNC GNHEEPQUVWAI UIGGMVVOFMRP EAIKAIPOXLOG}
+	$$
 	\subsubsection*{Answer 5}
+	We can use the fact that common trigrams and digrams will occur to find the \textit{gcd} of their positions to determine the key length.
+	\\\\	
+	Counting trigrams we get 3 "KAI"s at positions 52, 244, 358. And 3 "EAI"s at 49, 241, 355. Counting digrams we get 5 "SR"s at positions 89, 149, 185,...
+	\\\\
+	Calculating the gcd:
+	\[
+	\begin{split}
+	\text{KAI } &= 244-52=192 \\
+	&=358-52=306 \\
+	&=358-244=114\\
+	\\
+	\text{EAI }&= 241-49=192\\
+	&=355-49=306\\
+	&=355-241=114\\
+	\\
+	\text{SR }&=185-89=93\\
+	&=185-149=36\\
+	&=149-89=60\\
+	\\
+	gcd(192,306)&=\textbf{6}\\
+	gcd(192,114)&=\textbf{6}\\
+	gcd(93,192)&=\textbf{3}\\
+	gcd(36,114)&=\textbf{6}\\
+	\end{split}
+	\]
+	There are a few $gcd(a,b)=3$, but the majority has $gcd(a,b)=6$, so I make a guess that the key length is 6.
+	\\\\
+	The next step in solving the ciphertext is to divide it into 6 substrings / columns (based on the key length), and start counting the frequency of letters. 
+	\\\\
+	Now each column individually, is the same as Ceasar Chipers. The 4 most common letters of each column is:
+	
+	\[
+	\begin{matrix*}[l]
+	\text{Column 1} \\
+	\text{Letter} & \text{Amount} & \text{Frequency} \\
+	T & 8&12.9\% \\
+	V & 7&11.29\% \\
+	Q & 5&8.06\% \\
+	U & 5&8.06\% 
+	\end{matrix*}
+	\]
+	
+	\[
+	\begin{matrix*}[l]
+	\text{Column 2 FIXA} \\
+	\text{Letter} & \text{Amount} & \text{Frequency} \\
+	T & 8&12.9\% \\
+	V & 7&11.29\% \\
+	Q & 5&8.06\% \\
+	U & 5&8.06\% 
+	\end{matrix*}
+	\]
+	
+	\[
+	\begin{matrix*}[l]
+	\text{Column 3 FIXA} \\
+	\text{Letter} & \text{Amount} & \text{Frequency} \\
+	T & 8&12.9\% \\
+	V & 7&11.29\% \\
+	Q & 5&8.06\% \\
+	U & 5&8.06\% 
+	\end{matrix*}
+	\]
+	
 	
 	
 	\subsection*{Question 6}
 	\subsubsection*{(a)}
 	Explain what Friedman’s Index of Coincidence measures and compute it for the
-	ciphertext below, hence explain how you can see that the cipher used to encrypt
-	it was not monoalphabetic.
+	ciphertext below, hence explain how you can see that the cipher used to encrypt it was not monoalphabetic.
 	
 	\subsubsection*{Answer (a)}
-	The \textit{Index of Coincidence} (IOC) $I$, measures the likelihood of picking 2 identical letters, from a text. 
+	The \textit{Index of Coincidence} (IOC) $I$, measures the likelihood of picking 2 identical letters, from a text. If $I(\text{English}) \approx I(\text{ciphertext})$ then the encryption form is monoalphabetic.
 	\\\\
 	We can calculate the IOC $I$, by using the counted letters, given in the assignment. Where the  letters: a,b,c...,z are represented as $n_0,n_1,...,n_{25}$, and $n$ is the total number of letters. 
 	\[
