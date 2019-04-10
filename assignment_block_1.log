@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.27)  9 APR 2019 15:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.27)  10 APR 2019 11:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -239,48 +239,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--143
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 159--169
+Underfull \hbox (badness 10000) in paragraph at lines 159--167
 
  []
 
 
-Overfull \hbox (15.3479pt too wide) in paragraph at lines 159--169
+Overfull \hbox (15.3479pt too wide) in paragraph at lines 159--167
 \OT1/cmr/m/n/10 gives us the ci-pher text: KYXYZMJ-GYHMFN-YNX-TYXFD-SQJMT-PJYXF
 QYTF-
  []
 
 
-Overfull \hbox (33.19525pt too wide) in paragraph at lines 159--169
+Overfull \hbox (33.19525pt too wide) in paragraph at lines 159--167
 \OT1/cmr/m/n/10 SJN-IMJJJWNYL-WRN-FX-HXMQJ-NAFYMMFZJYXPJXNMMJJMINJXTXJKWHYI 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--169
+Underfull \hbox (badness 10000) in paragraph at lines 159--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--169
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--169
+Underfull \hbox (badness 10000) in paragraph at lines 159--167
 
  []
 
 [4]
-Overfull \hbox (112.01468pt too wide) detected at line 228
+Overfull \hbox (112.01468pt too wide) detected at line 226
 []
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 234--240
+Underfull \hbox (badness 10000) in paragraph at lines 232--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--240
+Underfull \hbox (badness 10000) in paragraph at lines 232--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--260
 
  []
 
@@ -307,7 +312,7 @@ s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb>
-Output written on assignment_block_1.pdf (6 pages, 164705 bytes).
+Output written on assignment_block_1.pdf (6 pages, 165584 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
