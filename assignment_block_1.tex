@@ -158,43 +158,101 @@
 	There are a few $gcd(a,b)=3$, but the majority has $gcd(a,b)=6$, so I make a guess that the key length is 6.
 	\\\\
 	The next step in solving the ciphertext is to divide it into 6 substrings / columns (based on the key length), and start counting the frequency of letters. 
-	\\\\
+	\[
+	\begin{matrix*}[l]
+	\text{Column 1}\\
+	\text{RRCYNUIOAOAMIMITMOTRHBOBCTLUTURBSETRSAEYANDELFSEOUHANTLNLOEAFL}\\
+	\\
+	\text{Column 2}\\
+	\text{RRCYNUIOAOAMIMITMOTRHBOBCTLUTURBSETRSAEYANDELFSEOUHANTLNLOEAFL}\\
+	\\
+	\text{Column 3}\\
+	\text{MSSQHVGFIXMXPIZIXHMIXSPIELIWSGAMMVAMJRZLIWMYIFEVVWSFWLESIQEIY}\\
+	\\
+	\text{Column 4}\\
+	\text{WEMWEWGMKLKZLFWJZAFVZFWOWWTZDSSLXWSWSVGSKOLFSJFWTAFDGWDMEWCKF}\\
+	\\
+	\text{Column 5}\\
+	\text{NANNEAMRAOEEHDSTESTWEETISNRADESIISSVUGUTAEHDVUDSRSOEAYLREIIAE}\\
+	\\
+	\text{Column 6}\\
+	\text{UEKCPIVPIGYVRFRYXFVZZJZKRFLKPJRFKFRFCIJYIIVVVKKKLRLDIRYREJEII}
+	\end{matrix*}
+	\]
+	\\
 	Now each column individually, is the same as Ceasar Chipers. The 4 most common letters of each column is:
 	
 	\[
 	\begin{matrix*}[l]
 	\text{Column 1} \\
-	\text{Letter} & \text{Amount} & \text{Frequency} \\
-	T & 8&12.9\% \\
-	V & 7&11.29\% \\
-	Q & 5&8.06\% \\
-	U & 5&8.06\% 
+	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
+	\text{T} & 8&12.9 \\
+	\text{V} & 7&11.29 \\
+	\text{Q} & 5&8.06 \\
+	\text{U} & 5&8.06
 	\end{matrix*}
 	\]
 	
 	\[
 	\begin{matrix*}[l]
-	\text{Column 2 FIXA} \\
-	\text{Letter} & \text{Amount} & \text{Frequency} \\
-	T & 8&12.9\% \\
-	V & 7&11.29\% \\
-	Q & 5&8.06\% \\
-	U & 5&8.06\% 
+	\text{Column 2} \\
+	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
+	\text{O} & 6&9.68 \\
+	\text{A} & 6&9.68 \\
+	\text{T} & 6&9.68 \\
+	\text{R} & 5&8.06
 	\end{matrix*}
 	\]
 	
 	\[
 	\begin{matrix*}[l]
-	\text{Column 3 FIXA} \\
-	\text{Letter} & \text{Amount} & \text{Frequency} \\
-	T & 8&12.9\% \\
-	V & 7&11.29\% \\
-	Q & 5&8.06\% \\
-	U & 5&8.06\% 
+	\text{Column 3} \\
+	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
+	\text{L} & 10&16.39 \\
+	\text{M} & 7&11.48 \\
+	\text{S} & 6&9.84 \\
+	\text{E} & 4&6.56
 	\end{matrix*}
 	\]
 	
+	\[
+	\begin{matrix*}[l]
+	\text{Column 4} \\
+	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
+	\text{W} & 12&19.67 \\
+	\text{F} & 7&11.48 \\
+	\text{S} & 6&9.84 \\
+	\text{K} & 4&6.56
+	\end{matrix*}
+	\]
 	
+	\[
+	\begin{matrix*}[l]
+	\text{Column 5} \\
+	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
+	\text{E} & 11&18.03 \\
+	\text{S} & 8&13.11 \\
+	\text{A} & 7&11.48 \\
+	\text{I} & 5&8.2
+	\end{matrix*}
+	\]
+	
+	\[
+	\begin{matrix*}[l]
+	\text{Column 6} \\
+	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
+	\text{I} & 8&13.11 \\
+	\text{R} & 8&13.11 \\
+	\text{K} & 7&11.48 \\
+	\text{V} & 6&9.84
+	\end{matrix*}
+	\]
+	
+	The most common letter in the English alphabet is "e", so I make the guess that the columns with the largest difference in letter frequency to be "e".
+	
+	So column 3: "L" $\rightarrow$ "e" (shift 7, key "H"), column 4: "W" $\rightarrow$ "e" (shift 18, key "S"). 
+	
+	First glance made me assume column 5: "E" $\rightarrow$ "e" (shift 0), but that would mean that it's not encrypted, thus I assume it's the next most frequent letter "t". So column 5: "E" $\rightarrow$ "t" (shift 11, key "L")
 	
 	\subsection*{Question 6}
 	\subsubsection*{(a)}
