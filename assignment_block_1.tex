@@ -208,7 +208,7 @@
 	\begin{matrix*}[l]
 	\text{Column 3} \\
 	\text{Letter} & \text{Amount} & \text{Frequency (\%)} \\
-	\text{L} & 10&16.39 \\
+	\text{I} & 10&16.39 \\
 	\text{M} & 7&11.48 \\
 	\text{S} & 6&9.84 \\
 	\text{E} & 4&6.56
@@ -250,9 +250,31 @@
 	
 	The most common letter in the English alphabet is "e", so I make the guess that the columns with the largest difference in letter frequency to be "e".
 	
-	So column 3: "L" $\rightarrow$ "e" (shift 7, key "H"), column 4: "W" $\rightarrow$ "e" (shift 18, key "S"). 
+	So column 3: "I" $\rightarrow$ "e" (shift 4, key "E"), column 4: "W" $\rightarrow$ "e" (shift 18, key "S"). And column 5: "E" $\rightarrow$ "e" (shift 0, key "A"), even though that would mean it's not encrypted.
 	
-	First glance made me assume column 5: "E" $\rightarrow$ "e" (shift 0), but that would mean that it's not encrypted, thus I assume it's the next most frequent letter "t". So column 5: "E" $\rightarrow$ "t" (shift 11, key "L")
+	So far the first 6 letters of the ciphertext looks like this: "HRienU". I make the guess that the letter "U" $\rightarrow$ "d", as I think it's a common word ending, and it fits with "-Riend". Thus column 6: "I" $\rightarrow$ "r" (shift 17, key "R").
+	
+	At this point I have a theory that the first 6 letters form the word "friend". To test this theory I begin by shifting the letter "R" $\rightarrow$ "r". Thus column 2: "O" $\rightarrow$ "o" (shift 0, key "A").
+	
+	At this point words are almost complete in many parts of the ciphertext, so I try shifting "H" $\rightarrow$ "f". Thus column 1: "T" $\rightarrow$ "r" (shift 2, key "C").
+	\\\\
+	\[
+	\begin{matrix*}[l]
+	\text{Key:} \\
+	\text{Column}&\text{Shift}&\text{Letter} \\
+	1 & 2& \text{C} \\
+	2 & 0& \text{A} \\
+	3 & 4& \text{E} \\
+	4 & 18& \text{S} \\
+	5 & 0& \text{A} \\
+	6 & 17& \text{R} 
+	\end{matrix*}
+	\]
+	\\
+	This gives me the first line of the plaintext: 
+	$$
+	\text{friends romans countrymen lend me your ears i come to bury  caesar not top}
+	$$
 	
 	\subsection*{Question 6}
 	\subsubsection*{(a)}
