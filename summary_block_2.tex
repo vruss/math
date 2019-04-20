@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{MA080G Cryptography Assignment Block 1}
+\title{MA080G Cryptography Assignment Block 2}
 \author{Viktor Rosvall}
 
 \usepackage{amsmath}
@@ -9,11 +9,32 @@
 \begin{document}
 	\maketitle
 	
-	\section*{Fermat's Little Theorem}
-	What is fermat blablabla
+	\section*{Fermat's Little Theorem} 
+	Fermat's Little Theorem is useful in primality testing and in public-key cryptography. It can also be used for find the inverse of  an integer $a$ modulo a prime. \cite{fermatsummary}
+	\\
+	\\
+	\fbox{
+		\parbox{\textwidth}{
+			\textbf{Theorem: }let $a$ be an integer and $p$ be a prime, then:
+			$$
+			a^p \equiv a \text{ (mod \textit{p})}
+			$$
+		}
+	}
+	\\
+
+	This can also be rewritten as: 
+	$$
+	a^{p-1} \equiv 1 \text{ (mod \textit{p})}
+	$$
 	
- 	\subsection*{Proof using modular arithmetic}
- 	asd \cite{fermatproof}. 
+	If $p$ is a prime then the inverse of $a$ can be calculated as:
+	$$
+	a^{-1} \equiv a^{p-2} \text{ (mod \textit{p})}
+	$$
+	
+ 	\subsection*{Proof using modular arithmetic \cite{fermatproof}}
+ 	asd . 
  	
  	
  	\subsubsection*{The cancellation law}
@@ -22,9 +43,14 @@
  	\subsubsection*{The rearrangement property}
  	abada
 
-	\medskip
+	\newpage
 
 	\begin{thebibliography}{99}
+		
+		\bibitem{fermatsummary}
+		C. Paar, J. Pelzl, 
+		\textit{\underline{Understanding Cryptography}}. 2010 ed.
+		Springer., Chapter 6.3.4 
 		
 		\bibitem{fermatproof} 
 		Wikipedia, "Proofs of Fermat's little theorem",
