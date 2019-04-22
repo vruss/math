@@ -10,7 +10,41 @@
 	\maketitle
 	
 	\section*{Public-key cryptography}
+	One of the problems public-key cryptography solves is the \textbf{key distribution problem} by using a distributed \textit{public} key for encryption and a \textit{private} key for decryption.
 	
+	This works because encryption is done using a \textit{One-way function}.
+	\\
+	\\
+	\fbox{
+		\parbox{\textwidth}{
+			\textbf{One-way function:} a function $f()$ is a one-way function if:
+			\[
+			\begin{split}
+				\text{1. }& y = f(x) \text{ is computaitonally easy}\\
+				\text{2. }&x = f^{-1}(y) \text{ is computaitonally impossible}\\
+			\end{split}
+			\]
+		}
+	}
+	\\ 
+	This means that even if the public key used to encrypt a message is know, it can't be decrypted without the private key. \cite{pubkeysummary}
+	
+	\subsubsection*{Key Distribution Example \cite{pubkeysummary}}
+	Let's say Alice wants to send $x$ to Bob. Both Alice and Bob have a public and private key-pair: $k = (k_{\text{pup}},k_{\text{priv}})$. 
+	
+	Alice encrypts $x$ using Bob's public key $b_{\text{pup}}$, as:
+	$$
+	y = e_{b_{\text{pup}}}(x)
+	$$ 
+	where $e$ is a one-way function. Now Bob can decrypt the received message $y$  using his private key $b_{\text{priv}}$ and retrieve $x$, as:
+	$$
+	x = d_{b_{\text{priv}}}(y)
+	$$
+	We can send any data securely using this method. It's common to send key's for symmetric ciphers such as AES, since it's computationally heavy to use these computations. 
+	
+	\section*{RSA} 
+		
+	\section*{Man-in-the-middle attack} 
 	
 	\section*{Fermat's Little Theorem} 
 	Fermat's Little Theorem is useful in primality testing and in public-key cryptography. It can also be used for find the inverse of  an integer $a$ modulo a prime. \cite{fermatsummary}
@@ -104,12 +138,25 @@
  	$$
  	3^{\Phi(8)} = 3^4 = 81 \equiv 1 \text{ (mod \textit{8})}
  	$$
+ 	
+	\section*{Compute the order of elements in Zp} 
+	
+	\section*{Carmichael's lambda-function} 
+	
+	\section*{prove the existence of primitive elements in Zp}
+	
+	\section*{complexity involved in Primality testing}
+	
+	\subsection*{Miller-Rabin probabilistic primality test}
+	
+	\section*{Pollard's p-1 factorisation method}
+	 
 
 	\newpage
 
 	\begin{thebibliography}{99}
 		
-		\bibitem{pubkey}
+		\bibitem{pubkeysummary}
 		C. Paar, J. Pelzl, 
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
 		Springer., Chapter 6.1 
