@@ -42,9 +42,15 @@
 	$$
 	We can send any data securely using this method. It's common to send key's for symmetric ciphers such as AES, since it's computationally heavy to use these computations. 
 	
+	\subsection*{With Digital Signatures \cite{digitalsignature}}
+	A digital signature is a must when using public-key cryptography. Because encryption keys are public, Oscar is able to do a \textbf{man-in-the-middle attack}, i.e., encrypt a message using \textit{Bob's public }key, while faking it's origin as Alice.
+	
+	This can be fixed using \textbf{digital signatures}. The sender creates a digital signature by using one's \textit{private} key to encrypt (instead of decrypt) a plaintext. Then the sender encrypts the already encrypted plaintext using the receiver's public key, with a message like "Hey, it's bob". 
+	
+	The receiver decrypts the first layer using his private key and sees the message "Hey, it's bob". At this point the receiver expects the message to be sent from Bob. Thus the receiver will then decrypts the second layer using the sender's (presumably Bob's) public key. 
+	
 	\section*{RSA} 
-		
-	\section*{Man-in-the-middle attack} 
+	
 	
 	\section*{Fermat's Little Theorem} 
 	Fermat's Little Theorem is useful in primality testing and in public-key cryptography. It can also be used for find the inverse of  an integer $a$ modulo a prime. \cite{fermatsummary}
@@ -149,7 +155,7 @@
 	
 	\subsection*{Miller-Rabin probabilistic primality test}
 	
-	\section*{Pollard's p-1 factorisation method}
+	\section*{Pollard's p-1 factorization method}
 	 
 
 	\newpage
@@ -160,6 +166,12 @@
 		C. Paar, J. Pelzl, 
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
 		Springer., Chapter 6.1 
+		
+		\bibitem{digitalsignature}
+		P. J. Cameron, 
+		\textit{\underline{Notes on cryptography}}.
+		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
+		Chapter 4.4 
 		
 		\bibitem{fermatsummary}
 		C. Paar, J. Pelzl, 
