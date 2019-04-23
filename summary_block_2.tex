@@ -49,8 +49,10 @@
 	
 	The receiver decrypts the first layer using his private key and sees the message "Hey, it's bob". At this point the receiver expects the message to be sent from Bob. Thus the receiver will then decrypts the second layer using the sender's (presumably Bob's) public key. 
 	
-	\section*{RSA} 
-	
+	\section*{RSA \cite{rsa-crypt}} 
+	RSA works by generating a public and private key-pairs. The public key can be only decrypted using the private key, and vice versa.
+
+	RSA is only secure because we don't have good algorithms for factorizing large integers. \cite{rsa-sec}	
 	
 	\section*{Fermat's Little Theorem} 
 	Fermat's Little Theorem is useful in primality testing and in public-key cryptography. It can also be used for find the inverse of  an integer $a$ modulo a prime. \cite{fermatsummary}
@@ -145,14 +147,28 @@
  	3^{\Phi(8)} = 3^4 = 81 \equiv 1 \text{ (mod \textit{8})}
  	$$
  	
-	\section*{Compute the order of elements in Zp} 
+	\section*{Compute the order of elements in Zn \cite{groups}} 
+	To compute the order or \textit{cardinality} of $Z_n$, the group needs to be finite. $Z_n$ is defined as the set of integers $\{0,1,2,...,n-1\}$. The order of $Z_n$ is denoted as $|Z_n| = n$.
 	
+	$Z_n^*$ is defined as the set of positive integers, co-prime to $n$. The order of $Z_n^*$ is denoted as $Z_n^* = \Phi(n)$
+	\\
+	\\
+	The order of an element $a$, of a group G, is denoted as: ord($a$). The element $a$ is called the \textit{generator} or a \textit{primitive element} of the group G, if ord($a$) = $|G|$.
+	
+	\subsubsection*{Example}
+	Determine the order of $a = 2$ in $Z_7$. We calculate this by doing modular arithmetic on $2^n$, until $2^n \equiv 1 \text{ (mod \textit{7})}$
+	\[
+	\begin{matrix*}{}
+		2^1&=2 &\equiv 2 \text{ (mod \textit{7})}\\
+		2^2&=4 &\equiv 4 \text{ (mod \textit{7})}\\
+		2^\textbf{3}&=8 &\equiv 1 \text{ (mod \textit{7})}\\
+	\end{matrix*}
+	\]
+	So from the last line, we can see $2^\textbf{3}=8 \equiv 1 \text{ (mod \textit{7})}$, thus ord(2) = 3 in $Z_7$. This also means that $a = 2$ in $Z_7$ is not a primitive element.
 	
 	\section*{Carmichael's lambda-function} 
 	
-	\section*{complexity involved in Primality testing}
-	
-	\subsection*{Miller-Rabin probabilistic primality test}
+	\section*{Miller-Rabin probabilistic primality test}
 	
 	\section*{Pollard's p-1 factorization method}
 	 
@@ -171,6 +187,16 @@
 		\textit{\underline{Notes on cryptography}}.
 		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
 		Chapter 4.4 
+		
+		\bibitem{rsa-crypt}
+		C. Paar, J. Pelzl, 
+		\textit{\underline{Understanding Cryptography}}. 2010 ed.
+		Springer., Chapter 7.2-7.3 
+		
+		\bibitem{rsa-sec}
+		C. Paar, J. Pelzl, 
+		\textit{\underline{Understanding Cryptography}}. 2010 ed.
+		Springer., Chapter 6.2.3 
 		
 		\bibitem{fermatsummary}
 		C. Paar, J. Pelzl, 
