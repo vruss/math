@@ -219,12 +219,27 @@
 	\]
 	So from the last line, we can see $2^\textbf{3}=8 \equiv 1 \text{ (mod \textit{7})}$, thus ord(2) = 3 in $Z_7$. This also means that $a = 2$ in $Z_7$ is not a primitive element.
 	
-	\section*{Carmichael's lambda-function \cite{carmite}} 
+	\section*{Primality testing}
+	A primality test checks if an integer $p$ is prime or composite. There are different types of primality tests, namely: \textbf{Fermat Primality Test} and \textbf{Miller-Rabin probabilistic primality test}. Integer factorization is also a form of primality test, but it's very inefficient. \cite{primality}
 	
-	
-	\section*{Miller-Rabin probabilistic primality test}
-	
-	\section*{Pollard's p-1 factorization method}
+	\subsection*{Miller-Rabin probabilistic primality test \cite{primality}}
+	With an odd prime candidate $p$, we can calculate a probability of it being a prime. If the probability of it being a composite is less than $2^{-80}$, then we can assume it's a prime. This is given by the theorem:
+	\\
+	\\
+	\fbox{
+		\parbox{\textwidth}{
+			\textbf{Theorem:} given the decomposition of an odd prime candidate $p$, then:
+			$$
+			p - 1 = 2^ur
+			$$
+			where $r$ is odd. If we can find an integer $a$ such that:
+			$$
+			a^r \not\equiv a \text{ (mod \textit{p})} \text{   and   } 
+			a^{r2^j} \not\equiv p-1 \text{ (mod \textit{p})}
+			$$
+			for all j = $\{0,1,...,u-1\}$, then $p$ is composite. Otherwise, it is probably a prime.
+		}
+	}
 	 
 
 	\newpage
@@ -277,11 +292,11 @@
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
 		Springer., Chapter 8.2.2 
 		
-		\bibitem{carmite}
-		P. J. Cameron, 
-		\textit{\underline{Notes on cryptography}}.
-		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
-		Page 91
+		\bibitem{primality}
+		C. Paar, J. Pelzl, 
+		\textit{\underline{Understanding Cryptography}}. 2010 ed.
+		Springer., Chapter 7.6.2
+		
 		
 	\end{thebibliography}
 \end{document}
