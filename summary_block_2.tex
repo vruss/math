@@ -49,10 +49,62 @@
 	
 	The receiver decrypts the first layer using his private key and sees the message "Hey, it's bob". At this point the receiver expects the message to be sent from Bob. Thus the receiver will then decrypts the second layer using the sender's (presumably Bob's) public key. 
 	
-	\section*{RSA \cite{rsa-crypt}} 
-	RSA works by generating a public and private key-pairs. The public key can be only decrypted using the private key, and vice versa.
-
-	RSA is only secure because we don't have good algorithms for factorizing large integers. \cite{rsa-sec}	
+	\section*{RSA} 
+	RSA works by generating a public and private key-pairs from very large primes. The public key can be only decrypted using the private key, and vice versa. \cite{rsa-sum}
+	
+	\subsection*{Encryption and Decryption \cite{rsa-crypt}}
+	Encryption is done in $Z_n$, where $n$ is the product of two primes, $p$ and $q$.
+	\\
+	\\
+	\fbox{
+		\parbox{\textwidth}{
+			\textbf{RSA Encryption:} given the public key $(n,e) = k_{pup}$, and the plaintext $x$.
+			$$
+			y = e_{k_{\text{pup}}}(x) \equiv x^e \text{ (mod \textit{n})}
+			$$
+			where $x,y \in Z_n$, and $e$ is called the encryption exponent or public exponent.
+		}
+	}
+	\\
+	\\
+	\\
+	Decryption is similarly done in $Z_n$.
+	\\
+	\\
+	\fbox{
+		\parbox{\textwidth}{
+			\textbf{RSA Decryption:} given the private key $d = k_{priv}$, and the plaintext $x$.
+			$$
+			x = d_{k_{\text{priv}}}(y) \equiv y^d \text{ (mod \textit{n})}
+			$$
+			where $x,y \in Z_n$, and $d$ is called the decryption exponent or private exponent.
+		}
+	} 	
+	
+	\subsection*{Key Generation \cite{rsa-generation}}
+	We want to generate a public key $(n,e) = k_{pup}$ and a private key $d = k_{priv}$. This means we have to calculate $n,e \text{ and }d$.
+	\\
+	\\
+	\fbox{
+		\parbox{\textwidth}{
+			\textbf{RSA Key Generation}\\ 
+			1. Compute $n = p * q$, where $p$ and $q$ are two large primes.\\
+			2. Compute $\Phi(n) = (p-1)(q-1)$\\
+			3. Choose a large \textbf{public exponent} $e \in \{1,2,...,\Phi(n)-1 \}$ such that the 
+			$$
+			\text{gcd(}e,\Phi(n)) = 1. 
+			$$ 
+			4. Compute the \textbf{private exponent} $d$ such that
+			$$
+			d*e \equiv 1 \text{ (mod } \Phi(n))
+			$$
+			thus $d = e^{-1}$.
+		}
+	}
+	\\
+	\\
+	\\
+	When calculating Euclid's algorithm for the gcd we can calculate the linear combination calculated from the Extended Euclid's Algorithm (EEA). This gives us both $e$ and $d$.
 	
 	\section*{Fermat's Little Theorem} 
 	Fermat's Little Theorem is useful in primality testing and in public-key cryptography. It can also be used for find the inverse of  an integer $a$ modulo a prime. \cite{fermatsummary}
@@ -72,7 +124,8 @@
 	$$
 	a^{p-1} \equiv 1 \text{ (mod \textit{p})}
 	$$
-	
+	thus $a$ is a \textit{primitive element} mod $p$ \cite{numbertheory}.  \\
+	\\
 	If $p$ is a prime then the inverse of $a$ can be calculated as:
 	$$
 	a^{-1} \equiv a^{p-2} \text{ (mod \textit{p})}
@@ -166,7 +219,8 @@
 	\]
 	So from the last line, we can see $2^\textbf{3}=8 \equiv 1 \text{ (mod \textit{7})}$, thus ord(2) = 3 in $Z_7$. This also means that $a = 2$ in $Z_7$ is not a primitive element.
 	
-	\section*{Carmichael's lambda-function} 
+	\section*{Carmichael's lambda-function \cite{carmite}} 
+	
 	
 	\section*{Miller-Rabin probabilistic primality test}
 	
@@ -188,20 +242,31 @@
 		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
 		Chapter 4.4 
 		
+		\bibitem{rsa-sum}
+		C. Paar, J. Pelzl, 
+		\textit{\underline{Understanding Cryptography}}. 2010 ed.
+		Springer., Chapter 7.1 
+		
 		\bibitem{rsa-crypt}
 		C. Paar, J. Pelzl, 
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
-		Springer., Chapter 7.2-7.3 
+		Springer., Chapter 7.2
 		
-		\bibitem{rsa-sec}
+		\bibitem{rsa-generation}
 		C. Paar, J. Pelzl, 
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
-		Springer., Chapter 6.2.3 
+		Springer., Chapter 7.3 
 		
 		\bibitem{fermatsummary}
 		C. Paar, J. Pelzl, 
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
 		Springer., Chapter 6.3.4 
+		
+		\bibitem{numbertheory}
+		P. J. Cameron, 
+		\textit{\underline{Notes on cryptography}}.
+		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
+		Page 89  
 		
 		\bibitem{fermatproof} 
 		Wikipedia, "Proofs of Fermat's little theorem",
@@ -211,6 +276,12 @@
 		C. Paar, J. Pelzl, 
 		\textit{\underline{Understanding Cryptography}}. 2010 ed.
 		Springer., Chapter 8.2.2 
+		
+		\bibitem{carmite}
+		P. J. Cameron, 
+		\textit{\underline{Notes on cryptography}}.
+		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
+		Page 91
 		
 	\end{thebibliography}
 \end{document}
