@@ -131,31 +131,46 @@
 				&=192(22)-103(41)
 			\end{split}
 			\] 
-			Thus $d^{-1} = e = t = 41$.
+			Thus $d^{-1} = e = t = -41$. But $e$ has to be in the set of $\{1,2,...,\Phi(n)-1 \}$. So we need to choose the class representative of $e$ in $Z_{\Phi(n)}$, thus:
+			$$
+			e = -41 = 151, \text{ in } Z_{\Phi(n)}.
+			$$
 			
 
-			\item From (i) and (ii) we have calculated that $n=221$ and $e=43$. The formula for encrypting plaintext $x$ into ciphertext $y$ is:
+			\item From (i) and (ii) we have calculated that $n=221$ and $e=151$. The formula for encrypting plaintext $x$ into ciphertext $y$ is:
 			$$
 			y \equiv x^e \text{ (mod \textit{n})}
 			$$ 
 			The plaintext $x = m = 2$ encrypted is:
 			$$
-			y=2^{43} \text{ (mod \textit{n})}
+			y=2^{151} \text{ (mod 221)}
 			$$
 			
-			which can be calculated the same way as we did calculating the decryption
+			$2^{151} \text{ (mod $221$)}$ can be calculated using \textbf{Modular Exponentiation}.
+			\[
+			\begin{matrix*}[l]
+				2^1&=2^1&\equiv 2^1 \text{ MOD } 221 &=2\\
+				2^{2}&=(2^{1})^{2}&\equiv 2^{2} \text{ MOD } 221 &=4\\
+				2^{4}&=(2^{2})^{2}&\equiv 4^{2} \text{ MOD } 221 &=16\\
+				2^{8}&=(2^{4})^{2}&\equiv 16^{2} \text{ MOD } 221 &=35\\
+				2^{16}&=(2^{8})^{2}&\equiv 35^{2} \text{ MOD } 221 &=120\\
+				2^{32}&=(2^{16})^{2}&\equiv 120^{2} \text{ MOD } 221 &=35\\
+				2^{64}&=(2^{32})^{2}&\equiv 35^{2} \text{ MOD } 221 &=120\\
+				2^{128}&=(2^{64})^{2}&\equiv 120^{2} \text{ MOD } 221 &=35
+			\end{matrix*}
+			\]
+			Next we need to actually calculate $2^{151} \text{ (mod $221$)}$, we need 151 in binary: $151_{10} = 1001011_2$.
 			\[
 			\begin{split}
-			y&=2^{43} \text{ MOD } 221 = ((2^{20} \text{ MOD } 221)(2^{23} \text{ MOD } 221)) \text{ MOD } 221\\
-			&=(152*111) \text{ MOD } 221\\
-			&=16872 \text{ MOD } 221\\
-			&=76
+				2^{151} \text{ MOD } 221 &= (2^{128}2^{16}2^42^22^1) \text{ MOD } 221\\
+				&\equiv (35*120*16*4*2) \text{ MOD } 221 \\
+				&= 128
 			\end{split}
 			\]
 			
 		\end{enumerate}
 		
-		\item Since RSA is based on the concept of multiplying two large primes to get the modulus $n$. If we are able factorize $n$, we could calculate $\Phi(n)$ which is required if we want to find inverse of the public key (as we did in b. (ii)). 
+		\item Since RSA is based on the multiplying two large primes to get the modulus $n$. If we are able factorize $n$, we could calculate $\Phi(n)$ which is required if we want to find inverse of the public key (as we did in b. (ii)). 
 	\end{enumerate}	
 
 	\medspace
@@ -171,9 +186,15 @@
 	\subsection*{Answer 3}
 	\renewcommand{\theenumi}{\alph{enumi}}
 	\begin{enumerate}
-		\item 
+		\item The element $a$ is called the \textit{generator} or a \textit{primitive element} of the group G, if ord($a$) = $|G|$.
 		
-		\item 
+		Recall from Fermat's Little Theorem that, when $p$ is prime and $a$ is any integer 
+		$$a^{p-1} \equiv 1 \text{ (mod \textit{p})}$$
+		also gives that $a$ is a primitive element of mod $p$. 
+		
+		Powers of a primitive element $a$ in mod $p$ can be used to express every non-zero element in $Z_p$.
+		
+		\item 5 is a primitve element in mod 23, since $2^{22} \equiv 1 \text{ MOD } 23$. 
 	\end{enumerate}	
 		
 	\medspace
@@ -194,9 +215,31 @@
 	\renewcommand{\theenumi}{\alph{enumi}}
 	\begin{enumerate}
 		\setcounter{enumi}{2}
-		\item 
+		\item Recall from \textbf{Euler's theorem} that if gcd($a,n$) = 1, then $a^{\Phi(n)} \equiv \text{ (mod $n$)}$.
 		
-		\item 
+		\textbf{Proof}: let $\{x_1,x_2,...,x_m\} \in Z_n^*$, i.e., the integers $x$ relative prime to $n$ in $Z$, where $m = \Phi(n)$.
+		
+		Suppose that the gcd($a,n$) = 1, then $a$ has a multiplicative inverse $b$ mod $n$. So 
+		$$
+		ab \equiv 1 \text{ (mod $n$)}.
+		$$
+		Let $y_i = ax_i \text{ (mod $n$)}$, where $i = 1,2,...,m$. 
+		
+		The gcd($y_i,n$) = 1, since gcd($a,n$) = gcd($x_i,n$) = 1. And $y_1,...,y_m$ is distinct, because $y_i \not= y_j$.
+		
+		Thus the sets $y_1,...,y_m$ and $x_1,...,x_m$ is equal, so their products are also the same:
+		$$
+		\prod x_i = \prod y_i \equiv \prod ax_i \text{ (mod $n$)} = a^m \prod x_i \text{ (mod $n$)}.
+		$$
+		And since we know that $x$ has an inverse since the gcd($x_i,n$) = 1, we can multiply the inverse product:
+		\[
+		\begin{split}
+		a^m \prod x_i * \prod x^{-1} &\equiv \prod x_i * \prod x^{-1} \text{ (mod $n$)}\\		
+		a^m &\equiv 1 \text{ (mod $n$)}
+		\end{split}
+		\]
+	
+		\item No it cannot be used to determine if an integer is prime or not. Fermat's Little Theorem can be used to determine if an integer is prime or not in most cases. It will give false positives on Carmichael Numbers.
 	\end{enumerate}	
 
 	\medspace
