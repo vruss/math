@@ -131,9 +131,9 @@
 				&=192(22)-103(41)
 			\end{split}
 			\] 
-			Thus $d^{-1} = e = t = -41$. But $e$ has to be in the set of $\{1,2,...,\Phi(n)-1 \}$. So we need to choose the class representative of $e$ in $Z_{\Phi(n)}$, thus:
+			Thus $d^{-1} = e = t = -41$. But $e \not\in \{1,2,...,\Phi(n)-1 \}$. So we need to choose the class representative of $e$ in $Z_{\Phi(n)}$, thus:
 			$$
-			e = -41 = 151, \text{ in } Z_{\Phi(n)}.
+			e = [-41] = [151], \text{ in } Z_{192}.
 			$$
 			
 
@@ -194,7 +194,7 @@
 		
 		Powers of a primitive element $a$ in mod $p$ can be used to express every non-zero element in $Z_p$.
 		
-		\item 5 is a primitve element in mod 23, since $2^{22} \equiv 1 \text{ MOD } 23$. 
+		\item 5 is a primitve element in mod 23, since $5^{22} \equiv 1 \text{ MOD } 23$. 
 	\end{enumerate}	
 		
 	\medspace
@@ -259,9 +259,16 @@
 	\subsection*{Answer 6}
 	\renewcommand{\theenumi}{\alph{enumi}}
 	\begin{enumerate}
-		\item 
+		\item Assume $p$ is prime. Then all the integer $a \in \{1,2,...,p-1\}$ are co-prime to $p$. This means that each integer have an inverse $b$ such that $ab \equiv -1 \text{ (mod $p$)}$. This can be expressed as:
+		$$
+		1*2*...*(p-1) \equiv -1 \text{ (mod $p$)}
+		$$
+		or as the theorem
+		$$
+		(p-1)! \equiv -1 \text{ (mod $p$)}
+		$$
 		
-		\item 
+		\item It's not suitible since when using RSA, want to have very large primes. Computing $p!$ on a very large prime is impossible, as it would take forever.
 	\end{enumerate}	
 
 \end{document}
