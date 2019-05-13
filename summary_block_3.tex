@@ -17,13 +17,31 @@
 	
 	We want to find a tuple $e$ of length $k$, where $e \in \{0,1\}$, and 
 	$$
-	\sum_{i = 0}^{k}e_ia_i = b.
+	\sum_{i = 0}^{k}e_ia_i = b
 	$$
 	The knapsack problem is NP since we can easily check if a solution is correct. Finding this solution is hard. We have in the worst-case $2^k$ possible $e$ tuples to check. 
 	
-	Explain NP-Complete
+	Explain NP-Complete...
 	
-	\subsection*{Merkle-Hellman knapsack cipher}
+	In the case of a \textit{super-increasing} data series $a$, the knapsack-problem degrades into an \textit{easy} problem. But it's considered \textit{hard} since we classify problems of it's worst-case behavior. 
+	
+	A \textbf{super-increasing} sequence is defined as a series of positives integers where each term is greater than the sum of it's predecessors, 
+	$$
+	\sum_{j=1}^{i-1}a_j<a_i
+	$$
+	For example $1,2,4,8$ is a super-increasing sequence.
+	
+	
+	\subsection*{Merkle-Hellman knapsack cipher \cite{knapsack-cipher}}
+	To encrypt using a Merkle-Hellman knapsack cipher we need to create a super-increasing sequence ($a_1,a_2,...,a_k$) which will be our \textit{private key} component. To create a public key component we also need to \textit{disguise} the sequence so it can't be broken using the greedy-algorithm. 
+	
+	To do this we need to choose an integer $n$ greater than the sum of the $a_i$ sequence and an integer $u$ with gcd($n,u$) = 1, then compute:
+	$$
+	a_i^* = ua_i \text{ MOD } n
+	$$
+	for each $a$, creating a new sequence ($a_1^*,a_2^*,...,a_k^*$) which will be our \textit{public key}.
+	
+	
 	
 	
 	\subsection*{ElGamal cryptosystem}
@@ -40,6 +58,12 @@
 		\textit{\underline{Notes on cryptography}}.
 		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
 		Page 78-80  
+		
+		\bibitem{knapsack-cipher}
+		P. J. Cameron, 
+		\textit{\underline{Notes on cryptography}}.
+		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
+		Page 80-82
 		
 	\end{thebibliography}
 \end{document}
