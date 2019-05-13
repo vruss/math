@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\title{MA080G Cryptography Summary Block 3}
+\author{Viktor Rosvall}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\begin{document}
+	\maketitle
+	
+	
+	\subsection*{Discrete Logarithm problem}
+	
+	
+	\subsection*{Knapsack problem \cite{knapsack-problem}}
+	Let's say we have a \textit{knapsack} with a volume of $b$ units, and a list of items $a_1, a_2,...,a_k$. We want to know if we can fill the knapsack with \textit{some} of the items. 
+	
+	We want to find a tuple $e$ of length $k$, where $e \in \{0,1\}$, and 
+	$$
+	\sum_{i = 0}^{k}e_ia_i = b.
+	$$
+	The knapsack problem is NP since we can easily check if a solution is correct. Finding this solution is hard. We have in the worst-case $2^k$ possible $e$ tuples to check. 
+	
+	Explain NP-Complete
+	
+	\subsection*{Merkle-Hellman knapsack cipher}
+	
+	
+	\subsection*{ElGamal cryptosystem}
+	
+	
+	\subsection*{Sophie-Germain primes}
+		
+	
+	\newpage
+	\begin{thebibliography}{99}
+		
+		\bibitem{knapsack-problem}
+		P. J. Cameron, 
+		\textit{\underline{Notes on cryptography}}.
+		\\\texttt{http://www.maths.qmul.ac.uk/~pjc/notes/crypt.pdf}
+		Page 78-80  
+		
+	\end{thebibliography}
+\end{document}
