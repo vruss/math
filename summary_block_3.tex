@@ -18,7 +18,7 @@
 		\parbox{\textwidth}{
 			\textbf{Definition:} given $x,y$ and a prime $p$ such that:
 			$$
-			y \equiv x^e \text{ (mod \textit{})}
+			y \equiv x^e \text{ (mod $p$)}
 			$$
 			find $e$.
 		}
@@ -26,6 +26,7 @@
 	\\
 	\\
 	This problem however is believed to be as hard as factorization and not yet proven to be NP-complete. The order or $x$ should be as large as possible to avoid it being broken by a exhaustive search. So $x$ should be chose as a primitive root mod $p$, which is an element of order $\lambda(p) = p-1$
+	
 	
 	
 	\subsection*{Knapsack problem \cite{knapsack-problem}}
@@ -59,8 +60,22 @@
 	for each $a$, creating a new sequence ($a_1^*,a_2^*,...,a_k^*$) which will be our \textit{public key}.
 	
 	
-	\subsection*{ElGamal cryptosystem}
 	
+	\subsection*{ElGamal cryptosystem \cite{elgamal}}
+	The ElGamal cryptosystem's security is based on difficulty of cracking the \textit{Discrete Logarithm problem}. It works as: Bob chooses a prime $p$ and a primitive root $g$ mod $p$. He then chooses a \textit{secret} exponent $a \in \{1,...,p-1\}$, and computes $h=g^a \text{ MOD $p$}$. This gives us the \textit{public key} ($p,g,h$) and the private component $a$. 
+	
+	Say Alice want's to send a plaintext message $x$ to Bob, where $x \in \{1,...,p-1\}$. Alice then choose a \textit{secret} exponent $k \in \{1,...,p-1\}$, and computes $y_1=g^k \text{ MOD $p$}$ and $y_2=xh^k \text{ MOD $p$}$, where $p,g,h$ is Bob's \textit{public key}. This gives Alice the ciphertext pair ($y_1,y_2$).   
+	
+	Bob receives the message ($y_1,y_2$) = ($g^k,xh^k$) mod $p$. Bob knows his secret number $a$ such that $h=g^a \text{ (mod $p$)}$, so he can thus compute 
+	$$
+	h^k \equiv (g^a)^k \equiv (g^k)^a \text{ (mod $p$)}
+	$$
+	Remember that Bob knows $g^k$ from the ciphertext pair Alice sent. He also knows his secret $a$. He can thus easily compute $h^k = (g^k)^a \text{ (mod $p$)}$.
+	
+	For Bob to extract $x$ from $xh^k$ he needs to compute the inverse of $h^k$, i.e., $(h^k)^{-1}$ with the EEA of $h^k$ and $p$, and multiply this with $xh^k$.
+	$$
+	xh^k*(h^k)^{-1} \text{ MOD $p$} = x \text{ MOD $p$} = x
+	$$
 	
 	
 	\subsection*{Sophie-Germain primes \cite{sophie-germain}}
@@ -72,7 +87,7 @@
 		\parbox{\textwidth}{
 			\textbf{Proposition:} let ($q,p$) be a \textit{Sophie-Germain} pair. Suppose that $1<x<p-2$. Then $x$ is a primitive root mod $p$ if and only if:
 			$$
-			x^q \equiv -1 \text{ (mod )} p
+			x^q \equiv -1 \text{ (mod $p$)} 
 			$$ 
 		}
 	}
@@ -98,6 +113,12 @@
 		\textit{\underline{Notes on cryptography}}.
 		\\\texttt{http://www.maths.qmul.ac.uk/\textasciitilde{}pjc/notes/crypt.pdf}
 		Page 80-82
+		
+		\bibitem{elgamal}
+		P. J. Cameron, 
+		\textit{\underline{Notes on cryptography}}.
+		\\\texttt{http://www.maths.qmul.ac.uk/\textasciitilde{}pjc/notes/crypt.pdf}
+		Page 105-106
 		
 		\bibitem{sophie-germain}
 		P. J. Cameron, 
